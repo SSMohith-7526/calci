@@ -1,0 +1,92 @@
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    return x / y if y != 0 else "Error! Division by zero."
+
+def power(x, y):
+    return x ** y
+
+def modulus(x, y):
+    return x % y
+
+def floor_division(x, y):
+    return x // y
+
+def square_root(x):
+    return math.sqrt(x)
+
+def factorial(x):
+    return math.factorial(x)
+
+def sin_value(x):
+    return math.sin(math.radians(x))
+
+def cos_value(x):
+    return math.cos(math.radians(x))
+
+def tan_value(x):
+    return math.tan(math.radians(x))
+
+def calculator():
+    while True:
+        print("\nSimple Calculator")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        print("5. Power")
+        print("6. Modulus")
+        print("7. Floor Division")
+        print("8. Square Root")
+        print("9. Factorial")
+        print("10. Sine")
+        print("11. Cosine")
+        print("12. Tangent")
+        print("13. Exit")
+        
+        choice = input("Enter your choice: ")
+        
+        if choice == '13':
+            print("Exiting calculator. Goodbye!")
+            break
+        
+        if choice in ['1', '2', '3', '4', '5', '6', '7']:
+            num1 = float(input("Enter first number: "))
+            num2 = float(input("Enter second number: "))
+            operations = {
+                '1': add,
+                '2': subtract,
+                '3': multiply,
+                '4': divide,
+                '5': power,
+                '6': modulus,
+                '7': floor_division
+            }
+            result = operations[choice](num1, num2)
+        elif choice in ['8', '9', '10', '11', '12']:
+            num = float(input("Enter a number: "))
+            operations = {
+                '8': square_root,
+                '9': factorial,
+                '10': sin_value,
+                '11': cos_value,
+                '12': tan_value
+            }
+            result = operations[choice](num)
+        else:
+            print("Invalid choice, try again.")
+            continue
+        
+        print("Result:", result)
+        
+if __name__ == "__main__":
+    calculator()
